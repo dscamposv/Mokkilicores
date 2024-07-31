@@ -1,0 +1,55 @@
+﻿@model Mokkilicores.Models.Pedido
+
+@{
+    ViewData["Title"] = "ListaItems";
+}
+
+<h1>Lista de Items</h1>
+<h5>El pedido con el id @Model.Id tiene los siguientes items:</h5>
+
+<p>
+    <a asp-action="ListaPedido">Volver a la lista de pedidos</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Artículo
+            </th>
+            <th>
+                Cantidad
+            </th>
+            <th>
+                Costo
+            </th>
+            <th>
+                Costo Total
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Items) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.articulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Costo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CostoTotal)
+                </td>
+        </tr>
+}
+    </tbody>
+</table>

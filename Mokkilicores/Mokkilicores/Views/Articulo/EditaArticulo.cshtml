@@ -1,0 +1,87 @@
+﻿@model Mokkilicores.Models.Articulo
+
+@{
+    ViewData["Title"] = "EditaArticulo";
+}
+
+<h1>Editar Articulo</h1>
+
+<h4>Ingrese los datos que desea actualizar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditaArticulo">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div style="margin-top: 20px;" class="form-group">
+                <label style="margin-bottom: 5px;" asp-for="Id" class="control-label">Código</label>
+                <input asp-for="Id" class="form-control" disabled="disabled" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div style="margin-top: 20px;" class="form-group">
+                <label style="margin-bottom: 5px;" asp-for="Cantidad" class="control-label">Cantidad en existencia</label>
+                <input asp-for="Cantidad" class="form-control" />
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+            </div>
+            <div style="margin-top: 20px;" class="form-group">
+                <label style="margin-bottom: 5px;" asp-for="IdBodega" class="control-label">Id de la bodega</label>
+                <input asp-for="IdBodega" class="form-control" />
+                <span asp-validation-for="IdBodega" class="text-danger"></span>
+            </div>
+            <div style="margin-top: 20px;" class="form-group">
+                <label style="margin-bottom: 5px;" asp-for="FechaIngreso" class="control-label">Fecha de ingreso a la bodega</label>
+                <input asp-for="FechaIngreso" class="form-control" type="date" />
+                <span asp-validation-for="FechaIngreso" class="text-danger"></span>
+            </div>
+            <div style="margin-top: 20px;" class="form-group">
+                <label style="margin-bottom: 5px;" asp-for="FechaVence" class="control-label">Fecha de vencimiento</label>
+                <input asp-for="FechaVence" class="form-control" type="date" />
+                <span asp-validation-for="FechaVence" class="text-danger"></span>
+            </div>
+            <div style="margin-top: 20px;" class="form-group">
+                <label style="margin-bottom: 5px;" asp-for="TipoLicor" class="control-label">Tipo de licor </label>
+                <select asp-for="TipoLicor" class="form-select" aria-label="Default select example">
+                    <option selected></option>
+                    <option value="Cerveza">Cerveza</option>
+                    <option value="Tequila">Tequila</option>
+                    <option value="Ron">Ron</option>
+                    <option value="Ginebra">Ginebra</option>
+                    <option value="Wiskey">Wiskey</option>
+                    <option value="Digestivo">Digestivo</option>
+                    <option value="Agua ardiente">Agua ardiente</option>
+                    <option value="Vino tinto">Vino tinto</option>
+                    <option value="Vino blanco">Vino blanco</option>
+                    <option value="Vino rosado">Vino rosado</option>
+                    <option value="Champagne ">Champagne </option>
+                </select>
+            </div>
+            <div style="height: 20px;"></div>
+            <div class="form-group">
+                <input type="submit" value="Actualizar artículo" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div style="margin-top: 20px;">
+    <a asp-action="ListaArticulo">Ir al inventario</a>
+</div>
+
+<div style="margin-top: 20px;">
+    <a asp-controller="Home" asp-action="Index">Ir al inicio</a>
+</div>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $(document).ready(function () {
+            var mensajeExito = "@ViewBag.MensajeExito";
+            if (mensajeExito) {
+                alert(mensajeExito);
+            }
+        });
+    </script>
+}
