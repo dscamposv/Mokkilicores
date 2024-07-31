@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mokkilicores", "Mokkilicores\Mokkilicores.csproj", "{9791560A-D2A8-402C-ACB9-18626E232BF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mokkilicores_Api", "Mokkilicores_Api\Mokkilicores_Api.csproj", "{EA5B0787-9B82-4516-A788-195F652B48FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9791560A-D2A8-402C-ACB9-18626E232BF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9791560A-D2A8-402C-ACB9-18626E232BF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9791560A-D2A8-402C-ACB9-18626E232BF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9791560A-D2A8-402C-ACB9-18626E232BF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA5B0787-9B82-4516-A788-195F652B48FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA5B0787-9B82-4516-A788-195F652B48FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA5B0787-9B82-4516-A788-195F652B48FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA5B0787-9B82-4516-A788-195F652B48FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48674AD7-47D8-4744-A6EB-D220D3B21E0B}
+	EndGlobalSection
+EndGlobal

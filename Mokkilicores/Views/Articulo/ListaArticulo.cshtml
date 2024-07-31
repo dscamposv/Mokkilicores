@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Mokkilicores.Models.Articulo>
+
+@{
+    ViewData["Title"] = "ListaArticulo";
+}
+
+<h1>Inventario</h1>
+
+<p>
+    <a asp-action="NuevoArticulo">Agregar nuevo artículo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdBodega)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaIngreso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaVence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoLicor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdBodega)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaIngreso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaVence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoLicor)
+            </td>
+            <td>
+                    @Html.ActionLink("Editar", "EditaArticulo", new { id=item.Id }) |
+                    @Html.ActionLink("Eliminar", "EliminaArticulo", new { id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
