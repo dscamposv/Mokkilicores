@@ -5698,19 +5698,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Vinicio\\.nuget\\packages\\": {}
+    "C:\\Users\\sussy\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vinicio\\Desktop\\Sussana\\Mokkilicores\\Mokkilicores\\Mokkilicores.csproj",
+      "projectUniqueName": "C:\\Users\\sussy\\OneDrive\\DOCUMENTS\\UNED\\BACH INGENIERIA INFORMATICA\\2024.2\\3075. Fundamentos en Programación Web\\Proyecto 2\\Mokkilicores\\Mokkilicores\\Mokkilicores\\Mokkilicores.csproj",
       "projectName": "Mokkilicores",
-      "projectPath": "C:\\Users\\Vinicio\\Desktop\\Sussana\\Mokkilicores\\Mokkilicores\\Mokkilicores.csproj",
-      "packagesPath": "C:\\Users\\Vinicio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vinicio\\Desktop\\Sussana\\Mokkilicores\\Mokkilicores\\obj\\",
+      "projectPath": "C:\\Users\\sussy\\OneDrive\\DOCUMENTS\\UNED\\BACH INGENIERIA INFORMATICA\\2024.2\\3075. Fundamentos en Programación Web\\Proyecto 2\\Mokkilicores\\Mokkilicores\\Mokkilicores\\Mokkilicores.csproj",
+      "packagesPath": "C:\\Users\\sussy\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sussy\\OneDrive\\DOCUMENTS\\UNED\\BACH INGENIERIA INFORMATICA\\2024.2\\3075. Fundamentos en Programación Web\\Proyecto 2\\Mokkilicores\\Mokkilicores\\Mokkilicores\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Vinicio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sussy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5718,6 +5723,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5730,6 +5736,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -5760,7 +5771,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

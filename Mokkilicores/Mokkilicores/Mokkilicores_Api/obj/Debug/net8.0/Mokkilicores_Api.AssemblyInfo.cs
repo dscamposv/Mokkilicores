@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mokkilicores_Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c7786e3a9c19493488d99643269513d6384a61e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8632abfc726764c4fcfc125493ae64218259c7d0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mokkilicores_Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mokkilicores_Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -11,12 +11,12 @@ namespace Mokkilicores_api.Data
             ElCache = cache;
         }
 
-
+        //ARTICULOS
         public List<Articulo> ObtengaLaListaDeArticulos()
         {
             List<Articulo> resultado;
 
-            if (EstaVacioElCache())
+            if (EstaVacioElCacheArticulo())
             {
                 resultado = new List<Articulo>();
                 ElCache.Set("ListaDeArticulos", resultado);
@@ -44,7 +44,7 @@ namespace Mokkilicores_api.Data
         }
 
 
-        public bool EstaVacioElCache()
+        public bool EstaVacioElCacheArticulo()
         {
             if (ElCache.Get("ListaDeArticulos") is null)
                 return true;
@@ -87,5 +87,87 @@ namespace Mokkilicores_api.Data
                 return true;
             }
         }
+
+
+        //CLIENTES
+
+        public List<Cliente> ObtengaLaListaDeClientes()
+        {
+            List<Cliente> resultado;
+
+            if (EstaVacioElCacheCliente())
+            {
+                resultado = new List<Cliente>();
+                ElCache.Set("ListaDeClientes", resultado);
+            }
+            else
+                resultado = (List<Cliente>)ElCache.Get("ListaDeClientes");
+
+            return resultado;
+        }
+
+        public Cliente ObtengaCliente(string id)
+        {
+
+            List<Cliente> laLista;
+            laLista = ObtengaLaListaDeClientes();
+
+            foreach (Cliente cliente in laLista)
+            {
+                if (cliente.Id == id)
+                    return cliente;
+            }
+
+            return null;
+
+        }
+
+
+        public bool EstaVacioElCacheCliente()
+        {
+            if (ElCache.Get("ListaDeClientes") is null)
+                return true;
+            else
+                return false;
+        }
+
+        public bool AgregarCliente(Cliente cliente)
+        {
+            List<Cliente> laLista;
+            laLista = ObtengaLaListaDeClientes();
+            laLista.Add(cliente);
+            return true;
+        }
+
+        public bool EliminarCliente(string id)
+        {
+            List<Cliente> laLista;
+            laLista = ObtengaLaListaDeClientes();
+            Cliente cliente = ObtengaCliente(id);
+            if (cliente is null)
+                return false;
+            else
+            {
+                laLista.Remove(cliente);
+                return true;
+            }
+        }
+        public bool EditarCliente(Cliente cliente)
+        {
+            List<Cliente> laLista;
+            laLista = ObtengaLaListaDeClientes();
+            Cliente clienteViejo = ObtengaCliente(cliente.Id);
+            if (clienteViejo is null)
+                return false;
+            else
+            {
+                laLista.Remove(clienteViejo);
+                laLista.Add(cliente);
+                return true;
+            }
+        }
+
+
+
     }
 }

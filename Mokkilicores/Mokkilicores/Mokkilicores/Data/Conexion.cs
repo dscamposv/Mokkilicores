@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Mokkilicores.Data
 {
-    public class Conexion
+    public class Conexion 
     {
         private string _url = "http://localhost:5233/api/";
         private readonly IMemoryCache _cache;
@@ -15,6 +15,9 @@ namespace Mokkilicores.Data
         {
             _cache = cache;
         }
+
+
+        //ARTICULOS
 
         public bool addArticulo(Articulo articulo)
         {
@@ -68,55 +71,98 @@ namespace Mokkilicores.Data
 
         }
 
-        public void addCliente(Cliente cliente)
+
+        //CLIENTES
+        public bool addCliente(Cliente cliente)
         {
-            List<Cliente> tempCliente = GetCliente();
-            tempCliente.Add(cliente);
+            //List<Cliente> tempCliente = GetCliente();
+            //tempCliente.Add(cliente);
+
+
+
+            bool Respuesta = false;
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(_url);
+
+            var contenido = new StringContent(JsonConvert.SerializeObject(cliente), Encoding.UTF8, "application/json");
+            client.PostAsync($"Cliente", contenido);
+
+
+            return Respuesta;
 
         }
 
         public List<Cliente> GetCliente()
         {
 
-            List<Cliente> tempList;
+            //List<Cliente> tempList;
 
-            if (_cache.Get("ListaCliente") == null)
-            {
-                tempList = new List<Cliente>();
-                _cache.Set("ListaCliente", tempList);
-            }
-            else
-            {
-                tempList = (List<Cliente>)_cache.Get("ListaCliente");
-            }
+            //if (_cache.Get("ListaCliente") == null)
+            //{
+            //    tempList = new List<Cliente>();
+            //    _cache.Set("ListaCliente", tempList);
+            //}
+            //else
+            //{
+            //    tempList = (List<Cliente>)_cache.Get("ListaCliente");
+            //}
 
-            return tempList;
+            //return tempList;
+
+            List<Cliente> lista = new List<Cliente>();
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(_url);
+                var response = client.GetAsync("Cliente").Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json_respuesta = response.Content.ReadAsStringAsync().Result;
+                    var resultado = JsonConvert.DeserializeObject<List<Cliente>>(json_respuesta);
+                    lista = resultado;
+                }
+            }
+            return lista;
         }
 
         public void editCliente(Cliente cliente)
         {
-            var listaActualCache = GetCliente();
-            var clienteEdit = listaActualCache.FirstOrDefault(c => c.Id == cliente.Id);
-            var index = listaActualCache.FindIndex(c => c.Id == cliente.Id);
+            //var listaActualCache = GetCliente();
+            //var clienteEdit = listaActualCache.FirstOrDefault(c => c.Id == cliente.Id);
+            //var index = listaActualCache.FindIndex(c => c.Id == cliente.Id);
 
-            listaActualCache.Remove(clienteEdit);
-            listaActualCache.Insert(index, cliente);
+            //listaActualCache.Remove(clienteEdit);
+            //listaActualCache.Insert(index, cliente);
 
-            _cache.Remove("ListaCliente");
-            _cache.Set("ListaCliente", listaActualCache);
+            //_cache.Remove("ListaCliente");
+            //_cache.Set("ListaCliente", listaActualCache);
+
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(_url);
+
+            var contenido = new StringContent(JsonConvert.SerializeObject(cliente), Encoding.UTF8, "application/json");
+            client.PutAsync($"Cliente/{cliente.Id}", contenido);
         }
 
         public void eliminaCliente(Cliente cliente)
         {
-            var listaActualCache = GetCliente();
-            var clienteEliminar = listaActualCache.FirstOrDefault(c => c.Id == cliente.Id);
+            //var listaActualCache = GetCliente();
+            //var clienteEliminar = listaActualCache.FirstOrDefault(c => c.Id == cliente.Id);
 
-            listaActualCache.Remove(clienteEliminar);
+            //listaActualCache.Remove(clienteEliminar);
 
-            _cache.Remove("ListaCliente");
-            _cache.Set("ListaCliente", listaActualCache);
+            //_cache.Remove("ListaCliente");
+            //_cache.Set("ListaCliente", listaActualCache);
+
+            var client = new HttpClient();
+            client.BaseAddress = new Uri(_url);
+
+            client.DeleteAsync($"Cliente/{cliente.Id}");
         }
 
+
+
+        // PEDIDOS
 
         public void addPedidos(Pedido pedido)
         {
